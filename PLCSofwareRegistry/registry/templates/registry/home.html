@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Реестр ПО</title>
+</head>
+<body>
+<h1> ЗДЕСЬ БУДЕТ ФИЛЬТР ВЫБОРА  ПО {{user.get_username}}</h1>
+{% for soft in sw %}
+    <p>{{ soft.plc }}</p>
+    <p>{{ soft.crc_md5_user_software }}</p>
+    <hr>
+    {% empty %}
+    <p>Данных нет</p>
+{% endfor %}
+<a href="/reg">
+    <button>Регистрация</button>
+</a>
+{% if user.get_username != '' %}
+<a href="/add">
+    <button>add</button>
+</a>
+{% endif %}
+<a href="/login">
+    <button>логин</button>
+</a>
+<a href="/logout">
+    <button>логоут</button>
+</a>
+</body>
+</html>

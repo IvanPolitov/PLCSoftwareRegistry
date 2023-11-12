@@ -5,14 +5,16 @@
     <title>Реестр ПО</title>
 </head>
 <body>
-    <h1> форма для добавления по</h1>
-    <div>
-        <form action="" method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <a href="{% url 'registry' %}"><button type="submit">Отправить</button></a>
-        </form>
+<h1> форма для добавления по</h1>
+<div>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <a href="{% url 'registry' %}">
+            <button type="submit">Отправить</button>
+        </a>
+    </form>
 
-    </div>
+</div>
 </body>
 </html>

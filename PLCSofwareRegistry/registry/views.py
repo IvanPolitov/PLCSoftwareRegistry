@@ -4,6 +4,7 @@ from .forms import RegistryForm, UserRegForm, UserAuthForm
 from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.models import User
 from .models import Software
+from django.contrib.auth.decorators import login_required
 def home(request: HttpRequest):
     print(request.user)
     if request.user.id is None:
@@ -11,7 +12,7 @@ def home(request: HttpRequest):
                    'sw': []}
         return render(request, 'registry/home.html', context)
     context = {'user': request.user,
-               'sw': Software.objects.filter(creator=request.user.id)}
+               'sw': Software.objects.all()}
     return render(request, 'registry/home.html', context)
 
 def add_software(request: HttpRequest):
